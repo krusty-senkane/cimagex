@@ -226,7 +226,11 @@ class Protein():
     def filter_20s_by_ms2(self, min_ms2=2):
         """Only keep 20s with a certain number of ms2s."""
         self.peptides = [p for p in self.peptides if not(p.ratio == 20 and p.num_ms2 < min_ms2)]
-
+        
+    def filter_20s_by_ms2_none(self, min_ms2=2):
+        """Only keep 20s that do not have None ms2."""
+        self.peptides = [p for p in self.peptides if not(p.ratio == 20 and p.num_ms2 is None)]
+   
     @staticmethod
     def special_mean(ratios):
         """Return mean ratio given a set of ratios."""

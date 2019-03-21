@@ -418,6 +418,11 @@ class PeptideDataset():
         """Filter 20s that only have one ms2."""
         for sequence in self.sequences:
             sequence.filter_20s_by_ms2()
+            
+    def filter_20s_by_ms2_none(self, min_ms2=2):
+        """Only keep 20s that do not have None ms2."""
+        for sequence in self.sequences:
+            sequence.filter_20s_by_ms2_none()
 
     def annotate_residues(self):
         """Annotate residues."""
